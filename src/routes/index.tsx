@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowLeft, BookOpen, CheckCircle2, Download, Gamepad2, Home, Printer, RotateCcw, Star, Trophy } from "lucide-react";
+import { ArrowLeft, BookOpen, Download, Gamepad2, Home, Printer, RotateCcw, Star, Trophy } from "lucide-react";
 import "../kpop.css";
 
 type Activity={id:number;title:string;subject:string;emoji:string;avatar:string;bg:string;question:string;visual:string;answers:string[];correct:number;hint:string};
