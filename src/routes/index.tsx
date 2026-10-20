@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, BookOpen, Check, ChevronDown, Gift, Heart, LockKeyhole, Palette, Printer, Scissors, Sparkles, Star, Timer, Trophy, X } from "lucide-react";
 import "../kpop.css";
+import { analyticsConsent, consentHasDecision, setAnalyticsConsent, startTracking, trackCheckout } from "../lib/huntrix-tracking";
 
 const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
 const COUNTDOWN_KEY = "lp-countdown-ends";
@@ -100,10 +101,16 @@ function MaterialCarousel(){
 function App(){
  const [faq,setFaq]=useState<number|null>(0);
  const [notice,setNotice]=useState(false);
+ const [showConsent,setShowConsent]=useState(false);
+ useEffect(()=>{setShowConsent(!consentHasDecision());startTracking()},[]);
  const [showUpgrade,setShowUpgrade]=useState(false);
  const buy=(plan:"basic"|"complete"|"upgrade")=>{
   const url=plan==="basic"?"https://checkout.kitmakers.online/VCCL1O8SDABW":plan==="upgrade"?"https://checkout.kitmakers.online/VCCL1O8SDABX":"https://checkout.kitmakers.online/VCCL1O8SDABV";
-  if(typeof url==="string" && /^https:\/\//.test(url)){window.location.href=url;return;}
+  if(typeof url==="string" && /^https:\/\//.test(url)){
+   const destination=trackCheckout(plan,url);
+   window.setTimeout(()=>{window.location.assign(destination)},analyticsConsent()?180:0);
+   return;
+  }
   setNotice(true);
  };
  const scrollPrices=()=>document.getElementById("planos")?.scrollIntoView({behavior:"smooth"});
@@ -142,6 +149,7 @@ function App(){
     <button className="lp-button lp-primary" onClick={()=>buy("upgrade")}>SIM, QUERO O COMPLETO POR R$ 18,90 <ArrowRight size={17}/></button>
     <button className="lp-upgrade-decline" onClick={()=>buy("basic")}>Não, continuar com o Básico por R$ 12,90</button>
    </div></div>}
+  {showConsent&&<div className="lp-privacy-banner" role="dialog" aria-label="Preferências de privacidade"><div><strong>Privacidade e medição de anúncios</strong><p>Podemos usar o Pixel da Meta para medir visitas e cliques no checkout. Isso pode envolver cookies e dados de navegação. Você pode aceitar ou recusar.</p></div><div className="lp-privacy-actions"><button onClick={()=>{setAnalyticsConsent(false);setShowConsent(false)}}>Recusar</button><button onClick={()=>{setAnalyticsConsent(true);setShowConsent(false)}}>Aceitar medição</button></div></div>}
   {notice&&<div className="lp-modal-backdrop" role="presentation" onClick={()=>setNotice(false)}><div className="lp-modal" role="dialog" aria-modal="true" aria-label="Checkout em configuração" onClick={e=>e.stopPropagation()}><div className="lp-modal-icon">💗</div><h3>Checkout em configuração</h3><p>Os planos já estão prontos. Falta somente adicionar os links oficiais de pagamento antes de abrir as vendas.</p><button className="lp-button lp-primary" onClick={()=>setNotice(false)}>ENTENDI</button></div></div>}
  </div>
 }
