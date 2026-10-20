@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, BookOpen, Check, ChevronDown, Gift, Heart, LockKeyhole, Palette, Printer, Scissors, Sparkles, Star, Trophy, X } from "lucide-react";
+import { ArrowRight, BookOpen, Check, ChevronDown, Gift, Heart, LockKeyhole, Palette, Printer, Scissors, Sparkles, Star, Timer, Trophy, X } from "lucide-react";
 import "../kpop.css";
 
 const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
@@ -107,6 +107,8 @@ function App(){
  };
  const scrollPrices=()=>document.getElementById("planos")?.scrollIntoView({behavior:"smooth"});
  return <div className="lp">
+  <CountdownBar/>
+  
   
   
   <main>
