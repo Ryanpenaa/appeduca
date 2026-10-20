@@ -131,7 +131,6 @@ function App(){
   <section className="lp-ending"><div className="lp-container"><h2>Vamos começar essa missão cheia de descobertas?</h2><p>Escolha seu kit e leve a magia HUNTRIX para as atividades do dia a dia!</p><button className="lp-button lp-yellow" onClick={scrollPrices}>QUERO GARANTIR MEU KIT <ArrowRight size={19}/></button></div></section>
   </main>
   <footer className="lp-footer"><strong>✦ MISSÃO HUNTRIX KIDS</strong><p>Material educativo digital • Indicado para crianças de 4 a 6 anos, com acompanhamento de um adulto.</p><small>© 2026 Missão HUNTRIX Kids. Todos os direitos reservados.</small></footer>
-  <div className="lp-sticky"><span>Kit a partir de <strong>R$ 12,90</strong></span><button onClick={scrollPrices}>VER OFERTAS <ArrowRight size={16}/></button></div>
   {notice&&<div className="lp-modal-backdrop" role="presentation" onClick={()=>setNotice(false)}><div className="lp-modal" role="dialog" aria-modal="true" aria-label="Checkout em configuração" onClick={e=>e.stopPropagation()}><div className="lp-modal-icon">💗</div><h3>Checkout em configuração</h3><p>Os planos já estão prontos. Falta somente adicionar os links oficiais de pagamento antes de abrir as vendas.</p><button className="lp-button lp-primary" onClick={()=>setNotice(false)}>ENTENDI</button></div></div>}
  </div>
 }
