@@ -18,3 +18,71 @@
 .lp-bonus-card .lp-asset-small{margin:0}
 .lp-preview .lp-asset-small{min-height:150px}
 }
+
+/* Redesign editorial: minimalista, produto em primeiro lugar */
+.lp{background:#fff;color:#242329;font-family:'Nunito',Arial,sans-serif}
+.lp h1,.lp h2,.lp h3{font-family:'Nunito',Arial,sans-serif;line-height:1.2;letter-spacing:-.035em}
+.lp-container{max-width:940px}
+.lp-section{padding:64px 0}
+.lp-hero{background:#fff;padding:42px 0 55px}
+.lp-hero-grid{display:block;max-width:760px;text-align:center}
+.lp-hero-copy{text-align:center}
+.lp-kicker{color:#7b536c;font-size:11px;letter-spacing:1.1px}
+.lp-hero h1{max-width:720px;margin:14px auto 14px;color:#25212b;font-size:clamp(30px,4.3vw,49px);font-weight:900;letter-spacing:-.045em}
+.lp-hero h1 em{color:#9b3f77}
+.lp-hero-art{min-height:0;display:block;margin:12px auto 20px;max-width:680px}
+.lp-asset-main img{width:100%;max-height:none;filter:none}
+.lp-hero-art:has(.lp-asset-main){min-height:0}
+.lp-hero-copy>p{margin:5px auto 0;max-width:630px;font-size:16px;color:#65616b}
+.lp-hero-points{margin:19px auto 24px;justify-content:center;gap:10px 20px}
+.lp-hero-points span{color:#56515a;font-size:12px}
+.lp-hero-points svg{color:#418e70}
+.lp-button{border-radius:9px;padding:16px 23px;font-size:13px;box-shadow:none}
+.lp-button:hover{transform:none;filter:brightness(.97)}
+.lp-primary{background:#a34579;box-shadow:none}
+.lp-secondary{background:#f4f0f3;border:1px solid #d9d3d8;color:#3e3440}
+.lp-subcta{justify-content:center;font-size:11px;color:#77717b;margin-top:15px}
+.lp-product-section{background:#faf9fa;border-block:1px solid #eee9ed}
+.lp-simple-product{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.lp h2{font-size:clamp(26px,3vw,36px);color:#27232c}
+.lp-simple-product p{font-size:15px;color:#706a74}
+.lp-checklist{margin:0}
+.lp-checklist li{font-weight:700;font-size:14px;color:#403a43}
+.lp-bonus-section{background:#fff}
+.lp-center{max-width:650px;margin-bottom:29px}
+.lp-center p{color:#77717b;font-size:14px}
+.lp-bonus-grid{gap:16px}
+.lp-bonus-card{border:1px solid #e9e5e8;background:#fff;box-shadow:none;border-radius:12px;padding:20px}
+.lp-bonus-index{background:#f6f1f4;color:#88617a;margin-bottom:15px;border-radius:5px}
+.lp-bonus-card h3{font-size:18px;color:#332b35;margin:19px 0 4px}
+.lp-bonus-card p{color:#736d77;font-size:13px}
+.lp-asset-small img{max-height:215px;filter:none}
+.lp-bonus-value strong{font-size:19px;color:#287c55}
+.lp-bonus-total{background:#faf9fa;border:1px solid #e8e3e7;max-width:580px;border-radius:10px;padding:21px;color:#3a323d}
+.lp-bonus-total span{color:#287c55;font-size:12px}
+.lp-placeholder-note{color:#8f8790}
+.lp-price-section{background:#faf9fa}
+.lp-prices{gap:18px;max-width:790px}
+.lp-price-card{border:1px solid #ded9de;box-shadow:none;border-radius:12px;padding:29px}
+.lp-price-card h3{font-size:25px;color:#2d2930}
+.lp-featured{border:2px solid #a34579;box-shadow:none;transform:none}
+.lp-popular{background:#a34579;border-radius:5px;font-size:10px;padding:8px 15px}
+.lp-oldprice{margin-top:13px}
+.lp-newprice{font-size:51px;color:#302b32}
+.lp-featured .lp-newprice{color:#a34579}
+.lp-price-card ul{border-top:1px solid #eee9ed}
+.lp-price-note{background:#fff;border:1px solid #e9e4e8;border-radius:9px;font-size:14px}
+.lp-faq-section{background:#fff}
+.lp-faq-item{border-radius:8px;border:1px solid #e8e4e7}
+.lp-faq-item button{color:#373139}
+.lp-ending{background:#38313c;padding:55px 20px}
+.lp-ending h2{color:#fff}
+.lp-ending p{color:#e4dfe5}
+.lp-yellow{background:#fff;color:#38313c;box-shadow:none}
+.lp-footer{background:#faf9fa;padding:28px 20px 100px}
+.lp-footer strong{color:#47404a}
+.lp-sticky{box-shadow:0 -3px 14px #00000012}
+.lp-sticky strong{color:#a34579}
+.lp-sticky button{background:#a34579;border-radius:7px}
+@media(max-width:800px){.lp-simple-product{grid-template-columns:1fr;gap:15px}.lp-hero-art{min-height:0}.lp-hero-grid{display:block}}
+@media(max-width:560px){.lp-hero{padding:30px 0 40px}.lp-hero h1{font-size:31px}.lp-hero-art{max-width:100%;margin:9px auto 16px}.lp-hero-art>.lp-asset-wrap{min-height:0}.lp-hero-art>.lp-book{transform:rotate(0) scale(.8);margin:-15px auto}.lp-hero-copy>p{font-size:14px}.lp-section{padding:44px 0}.lp-bonus-grid{grid-template-columns:1fr}.lp-bonus-card{padding:20px}.lp-bonus-card .lp-asset-small{margin:0}.lp-price-card{padding:23px}.lp-prices{gap:28px}}
