@@ -3,6 +3,47 @@ import { useEffect, useState } from "react";
 import { ArrowRight, BookOpen, Check, ChevronDown, Gift, Heart, LockKeyhole, Palette, Printer, Scissors, Sparkles, Star, Trophy, X } from "lucide-react";
 import "../kpop.css";
 
+const MONTHS_PT = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+const COUNTDOWN_KEY = "lp-countdown-ends";
+const COUNTDOWN_MS = 15 * 60 * 1000;
+
+function todayLabel(){
+  const d = new Date();
+  return `${String(d.getDate()).padStart(2,"0")} ${MONTHS_PT[d.getMonth()]} ${String(d.getFullYear()).slice(2)}`;
+}
+function readEndsAt(){
+  try{
+    const stored = localStorage.getItem(COUNTDOWN_KEY);
+    const value = stored ? Number(stored) : 0;
+    if(Number.isFinite(value) && value > Date.now()) return value;
+  }catch{ /* storage indisponível */ }
+  const endsAt = Date.now() + COUNTDOWN_MS;
+  try{ localStorage.setItem(COUNTDOWN_KEY, String(endsAt)); }catch{ /* ignore */ }
+  return endsAt;
+}
+function CountdownBar(){
+  const [remaining,setRemaining] = useState<number|null>(null);
+  useEffect(()=>{
+    setRemaining(Math.max(0, readEndsAt() - Date.now()));
+    const timer = window.setInterval(()=>{
+      let endsAt = readEndsAt();
+      if(endsAt - Date.now() <= 0){ // reinicia o ciclo de 15 minutos
+        endsAt = Date.now() + COUNTDOWN_MS;
+        try{ localStorage.setItem(COUNTDOWN_KEY, String(endsAt)); }catch{ /* ignore */ }
+      }
+      setRemaining(Math.max(0, endsAt - Date.now()));
+    },1000);
+    return ()=>window.clearInterval(timer);
+  },[]);
+  const minutes = remaining===null?15:Math.floor(remaining/60000);
+  const seconds = remaining===null?0:Math.floor((remaining%60000)/1000);
+  const clock = `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+  return <div className="lp-urgency" role="status" aria-label={`Oferta válida só hoje, ${todayLabel()}. Termina em ${clock}`}>
+    <span className="lp-urgency-msg">⚡ OFERTA VÁLIDA SÓ HOJE — {todayLabel()} ⚡</span>
+    <span className="lp-urgency-timer"><Timer size={15}/> TERMINA EM <strong>{clock}</strong></span>
+  </div>;
+}
+
 const bonus = [
  {name:"Caderno de Colorir",sub:"20 páginas para colorir e soltar a imaginação.",value:"R$ 19,90",emoji:"🎨",className:"color"},
  {name:"Recorte e Monte",sub:"10 atividades para desenvolver a coordenação motora.",value:"R$ 17,90",emoji:"✂️",className:"craft"},
