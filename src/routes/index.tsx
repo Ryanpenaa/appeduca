@@ -83,7 +83,7 @@ function MaterialCarousel(){
  const [active,setActive]=useState(0);
  const [paused,setPaused]=useState(false);
  const [missing,setMissing]=useState<Record<number,boolean>>({});
- useEffect(()=>{if(paused)return;const timer=window.setInterval(()=>setActive(v=>(v+1)%showcaseImages.length),500);return ()=>window.clearInterval(timer)},[paused]);
+ useEffect(()=>{if(paused)return;const timer=window.setInterval(()=>setActive(v=>(v+1)%showcaseImages.length),1500);return ()=>window.clearInterval(timer)},[paused]);
  return <div className="lp-carousel" aria-label="Prévia das atividades do material" onMouseEnter={()=>setPaused(true)} onMouseLeave={()=>setPaused(false)} onFocusCapture={()=>setPaused(true)} onBlurCapture={()=>setPaused(false)}>
  <div className="lp-carousel-track">
  {showcaseImages.map((src,i)=>{
