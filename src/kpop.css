@@ -140,3 +140,9 @@
 .lp-upgrade-modal .lp-button{width:100%;font-size:12px}
 .lp-upgrade-decline{background:transparent;border:0;text-decoration:underline;color:#6d626b;font-size:12px;margin-top:18px;padding:8px}
 @media(max-width:560px){.lp-upgrade-modal{padding:26px 19px}.lp-upgrade-modal h3{font-size:24px}}
+
+/* Aviso de consentimento para medição Meta */
+.lp-privacy-banner{position:fixed;z-index:200;bottom:12px;left:50%;transform:translateX(-50%);width:min(740px,calc(100% - 24px));background:#fff;color:#302a32;padding:19px 22px;border:1px solid #e7dfe5;border-radius:12px;box-shadow:0 8px 40px #26172530;display:flex;align-items:center;gap:20px}
+.lp-privacy-banner strong{font-size:14px}.lp-privacy-banner p{margin:5px 0 0;font-size:12px;line-height:1.45;color:#716775}
+.lp-privacy-actions{display:flex;gap:9px;flex-shrink:0}.lp-privacy-actions button{border:1px solid #b19baa;padding:10px 12px;background:#fff;color:#463c47;border-radius:7px;font-weight:800;font-size:12px;white-space:nowrap}.lp-privacy-actions button:last-child{background:#a34579;border-color:#a34579;color:white}
+@media(max-width:650px){.lp-privacy-banner{flex-direction:column;align-items:stretch;gap:12px}.lp-privacy-actions{justify-content:stretch}.lp-privacy-actions button{flex:1}}
