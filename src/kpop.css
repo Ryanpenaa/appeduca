@@ -125,3 +125,18 @@
 /* Somente a tarja superior acompanha a rolagem; sem barra inferior */
 .lp-urgency{position:sticky;top:0;z-index:100}
 .lp-sticky{display:none!important}
+
+/* Oferta intermediária após escolha do plano Básico */
+.lp-upgrade-modal{max-width:470px;width:100%;position:relative;padding:30px}
+.lp-upgrade-modal h3{font-size:27px;color:#302a32;margin:13px 0}
+.lp-upgrade-modal p{font-size:14px;margin:10px 0 18px;line-height:1.55}
+.lp-upgrade-close{position:absolute;top:10px;right:14px;border:0;background:transparent;font-size:29px;color:#756a75;line-height:1;padding:5px}
+.lp-upgrade-prices{display:flex;align-items:center;justify-content:center;gap:13px;flex-wrap:wrap;padding:15px;background:#faf4f8;border-radius:10px}
+.lp-upgrade-prices s{font-size:16px;color:#8e818e}.lp-upgrade-prices strong{font-size:34px;color:#a34579}
+.lp-upgrade-prices span{font-size:11px;font-weight:800;color:#287c55;width:100%}
+.lp-upgrade-list{list-style:none;text-align:left;padding:4px 0;margin:15px auto;max-width:310px}
+.lp-upgrade-list li{display:flex;gap:8px;align-items:center;margin:9px 0;font-size:13px;font-weight:700}
+.lp-upgrade-list svg{color:#23855d;flex-shrink:0}
+.lp-upgrade-modal .lp-button{width:100%;font-size:12px}
+.lp-upgrade-decline{background:transparent;border:0;text-decoration:underline;color:#6d626b;font-size:12px;margin-top:18px;padding:8px}
+@media(max-width:560px){.lp-upgrade-modal{padding:26px 19px}.lp-upgrade-modal h3{font-size:24px}}
