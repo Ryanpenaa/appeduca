@@ -37,7 +37,7 @@ function Illustration({type="main",small=false}:{type?:string;small?:boolean}){
   <div className="lp-book-top">✦ ♪ ✦</div><div className="lp-book-emoji">{item.emoji}</div><span className="lp-book-title">{item.heading}</span><span className="lp-book-detail">{item.detail}</span><div className="lp-book-girls"><span>👩🏻‍🎤</span><span>👩🏽‍🎤</span><span>👩🏼‍🎤</span></div><div className="lp-book-bottom">✦ UM MUNDO DE DESCOBERTAS ✦</div>
  </div>;
 }
-const showcaseImages=Array.from({length:11},(_,i)=>`/e${i+1}.webp`);
+const showcaseImages=[...Array.from({length:9},(_,i)=>`/E${i+1}.WEBP`),"/E10.png","/E11.png"];
 function MaterialCarousel(){
  const [active,setActive]=useState(0);
  const [paused,setPaused]=useState(false);
@@ -49,7 +49,7 @@ function MaterialCarousel(){
   const raw=(i-active+showcaseImages.length)%showcaseImages.length;
   const offset=raw===0?0:raw<=5?raw:raw-showcaseImages.length;
   return <button type="button" key={src} className={`lp-slide ${offset===0?"is-center":Math.abs(offset)===1?"is-neighbor":"is-hidden"}`} style={{"--offset":offset} as React.CSSProperties} onClick={()=>setActive(i)} aria-label={`Ver atividade ${i+1} de 11`} aria-current={offset===0?"true":undefined} tabIndex={Math.abs(offset)>1?-1:0}>
-   {missing[i]?<div className="lp-slide-fallback"><span>Atividade {i+1}</span><small>Imagem e{i+1}.webp</small></div>:<img src={src} alt={`Prévia da atividade ${i+1} do material Missão K-Pop Kids`} loading={Math.abs(offset)>2?"lazy":"eager"} onError={()=>setMissing(m=>({...m,[i]:true}))}/>}
+   {missing[i]?<div className="lp-slide-fallback"><span>Atividade {i+1}</span><small>Imagem {src.slice(1)}</small></div>:<img src={src} alt={`Prévia da atividade ${i+1} do material Missão K-Pop Kids`} loading={Math.abs(offset)>2?"lazy":"eager"} onError={()=>setMissing(m=>({...m,[i]:true}))}/>}
   </button>;
  })}
  </div>
