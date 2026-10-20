@@ -102,7 +102,7 @@ function App(){
  const [notice,setNotice]=useState(false);
  const [showUpgrade,setShowUpgrade]=useState(false);
  const buy=(plan:"basic"|"complete"|"upgrade")=>{
-  const url=plan==="basic"?import.meta.env.VITE_CHECKOUT_BASICO:plan==="upgrade"?import.meta.env.VITE_CHECKOUT_PROMO:import.meta.env.VITE_CHECKOUT_COMPLETO;
+  const url=plan==="basic"?"https://checkout.kitmakers.online/VCCL1O8SDABW":plan==="upgrade"?"https://checkout.kitmakers.online/VCCL1O8SDABX":"https://checkout.kitmakers.online/VCCL1O8SDABV";
   if(typeof url==="string" && /^https:\/\//.test(url)){window.location.href=url;return;}
   setNotice(true);
  };
