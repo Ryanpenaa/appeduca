@@ -121,3 +121,7 @@
 
 /* Mantém a barra da oferta e seu contador visíveis durante a rolagem */
 .lp-urgency{position:sticky;top:0;z-index:60;box-shadow:0 2px 10px #00000014}
+
+/* Somente a tarja superior acompanha a rolagem; sem barra inferior */
+.lp-urgency{position:sticky;top:0;z-index:100}
+.lp-sticky{display:none!important}
