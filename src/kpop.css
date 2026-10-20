@@ -111,3 +111,10 @@
 .lp-slide.is-center{transform:translate(-50%,-50%) scale(1)}
 }
 @media(prefers-reduced-motion:reduce){.lp-slide{transition:none}}
+
+/* Barra de urgência (topo) */
+.lp-urgency{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 18px;background:#2b2430;color:#fff;padding:10px 16px;text-align:center}
+.lp-urgency-msg{font-size:12px;font-weight:900;letter-spacing:.6px}
+.lp-urgency-timer{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.5px;color:#d9d3dc}
+.lp-urgency-timer strong{background:#a34579;border-radius:6px;padding:3px 9px;font-size:13px;font-variant-numeric:tabular-nums;color:#fff;letter-spacing:1px}
+@media(max-width:560px){.lp-urgency{gap:2px 10px;padding:9px 12px}.lp-urgency-msg{font-size:11px}}
