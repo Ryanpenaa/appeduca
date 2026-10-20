@@ -20,11 +20,11 @@ function Illustration({type="main",small=false}:{type?:string;small?:boolean}){
  const sources:Record<string,string>={main:"/mk.webp",color:"/n1.webp",craft:"/n2.webp",star:"/n3.webp"};
  if(sources[type]&&!imageFailed){
   return <div className={`lp-asset-wrap ${small?"lp-asset-small":""} ${type==="main"?"lp-asset-main":""}`}>
-   <img src={sources[type]} alt={type==="main"?"Professora apresentando o material Missão K-Pop Kids e seus três bônus":type==="color"?"Bônus 1: Caderno de Colorir":type==="craft"?"Bônus 2: Recorte e Monte":"Bônus 3: Jogos e Desafios"} loading={type==="main"?"eager":"lazy"} onError={()=>setImageFailed(true)}/>
+   <img src={sources[type]} alt={type==="main"?"Professora apresentando o material Missão HUNTRIX Kids e seus três bônus":type==="color"?"Bônus 1: Caderno de Colorir":type==="craft"?"Bônus 2: Recorte e Monte":"Bônus 3: Jogos e Desafios"} loading={type==="main"?"eager":"lazy"} onError={()=>setImageFailed(true)}/>
   </div>;
  }
  const map:Record<string,{emoji:string;heading:string;detail:string}> = {
- main:{emoji:"🎤",heading:"MISSÃO K-POP",detail:"KIDS • 50 ATIVIDADES"},
+ main:{emoji:"🎤",heading:"MISSÃO HUNTRIX",detail:"KIDS • 50 ATIVIDADES"},
  color:{emoji:"🖍️",heading:"COLORIR",detail:"20 PÁGINAS"},
  craft:{emoji:"✂️",heading:"RECORTE E MONTE",detail:"10 ATIVIDADES"},
  star:{emoji:"🌟",heading:"SUPER ESTRELA",detail:"CONQUISTAS"},
@@ -49,7 +49,7 @@ function MaterialCarousel(){
   const raw=(i-active+showcaseImages.length)%showcaseImages.length;
   const offset=raw===0?0:raw<=5?raw:raw-showcaseImages.length;
   return <button type="button" key={src} className={`lp-slide ${offset===0?"is-center":Math.abs(offset)===1?"is-neighbor":"is-hidden"}`} style={{"--offset":offset} as React.CSSProperties} onClick={()=>setActive(i)} aria-label={`Ver atividade ${i+1} de 11`} aria-current={offset===0?"true":undefined} tabIndex={Math.abs(offset)>1?-1:0}>
-   {missing[i]?<div className="lp-slide-fallback"><span>Atividade {i+1}</span><small>Imagem {src.slice(1)}</small></div>:<img src={src} alt={`Prévia da atividade ${i+1} do material Missão K-Pop Kids`} loading={Math.abs(offset)>2?"lazy":"eager"} onError={()=>setMissing(m=>({...m,[i]:true}))}/>}
+   {missing[i]?<div className="lp-slide-fallback"><span>Atividade {i+1}</span><small>Imagem {src.slice(1)}</small></div>:<img src={src} alt={`Prévia da atividade ${i+1} do material Missão HUNTRIX Kids`} loading={Math.abs(offset)>2?"lazy":"eager"} onError={()=>setMissing(m=>({...m,[i]:true}))}/>}
   </button>;
  })}
  </div>
@@ -71,7 +71,7 @@ function App(){
   <main>
   <section id="inicio" className="lp-hero"><div className="lp-container lp-hero-grid"><div className="lp-hero-copy">
     <span className="lp-kicker">MATERIAL EDUCATIVO DIGITAL • 4 A 6 ANOS</span>
-    <h1>Transforme o interesse pelo K-Pop em <em>aprendizado e diversão.</em></h1>
+    <h1>Transforme o interesse pelo HUNTRIX em <em>aprendizado e diversão.</em></h1>
     <div className="lp-hero-art"><Illustration/></div>
     <p>50 atividades educativas para desenvolver atenção, criatividade, letras e números. Ideal para usar em casa ou complementar atividades na escola.</p>
     <div className="lp-hero-points"><span><Check size={16}/> Arquivo PDF A4</span><span><Check size={16}/> Pronto para imprimir</span><span><Check size={16}/> Pagamento único</span></div>
@@ -79,15 +79,15 @@ function App(){
     <div className="lp-subcta"><LockKeyhole size={14}/> Produto digital • Entrega após confirmação do pagamento</div>
    </div></div></section>
   <section className="lp-section lp-product-section"><div className="lp-container lp-simple-product">
-    <div><span className="lp-kicker">O QUE VOCÊ RECEBE</span><h2>Um material pronto para imprimir e usar</h2><p>Atividades educativas com temática K-Pop que ajudam a transformar momentos de brincadeira em oportunidades de aprendizado.</p></div>
+    <div><span className="lp-kicker">O QUE VOCÊ RECEBE</span><h2>Um material pronto para imprimir e usar</h2><p>Atividades educativas com temática HUNTRIX que ajudam a transformar momentos de brincadeira em oportunidades de aprendizado.</p></div>
     <ul className="lp-checklist">{["50 atividades educativas no material principal","Exercícios de letras, números, lógica e criatividade","PDF em formato A4, fácil de imprimir","Para mães, responsáveis e professoras"].map(s=><li key={s}><Check size={20}/>{s}</li>)}</ul>
   </div><div className="lp-container lp-gallery-heading"><strong>Veja algumas páginas do material</strong><span>11 prévias • deslize ou toque nas laterais</span></div><MaterialCarousel/></section>
   <section id="bonus" className="lp-section lp-bonus-section"><div className="lp-container"><div className="lp-center"><span className="lp-kicker">BÔNUS DO KIT COMPLETO</span><h2>No Kit Completo você recebe mais 3 materiais</h2><p>Materiais complementares para ampliar as opções de atividades.</p></div><div className="lp-bonus-grid">{bonus.map((b,i)=><article className="lp-bonus-card" key={b.name}><span className="lp-bonus-index">BÔNUS 0{i+1}</span><Illustration type={b.className} small/><h3>{b.name}</h3><p>{b.sub}</p><div className="lp-bonus-value"><s>{b.value}</s><strong>GRÁTIS</strong></div></article>)}</div><div className="lp-bonus-total"><Gift size={32}/><div><strong>Total dos bônus: <s>R$ 52,70</s></strong><span>NO KIT COMPLETO, VOCÊ LEVA OS 3 GRÁTIS!</span></div></div><p className="lp-placeholder-note">Os valores individuais são sugestões de referência e não representam preços anteriores comprovados.</p></div></section>
   <section id="planos" className="lp-section lp-price-section"><div className="lp-container"><div className="lp-center"><span className="lp-kicker">ESCOLHA SEU PLANO</span><h2>Escolha o material ideal para você</h2><p>Pagamento único, sem mensalidade.</p></div><div className="lp-prices"><article className="lp-price-card"><h3>Kit Básico</h3><p>Para começar a aventura</p><div className="lp-oldprice">Valor de referência <s>R$ 67,90</s></div><div className="lp-newprice"><span>R$</span>12,90</div><span className="lp-payment">Pagamento único</span><ul><li><Check size={17}/>50 atividades educativas</li><li><Check size={17}/>PDF A4 para imprimir</li><li><Check size={17}/>Material digital</li><li className="lp-no"><X size={17}/>Não inclui os 3 bônus</li></ul><button className="lp-button lp-secondary" onClick={()=>buy("basic")}>QUERO O BÁSICO <ArrowRight size={18}/></button></article><article className="lp-price-card lp-featured"><span className="lp-popular">MAIS COMPLETO</span><h3>Kit Completo</h3><p>Todos os materiais e os bônus!</p><div className="lp-oldprice">Valor de referência <s>R$ 127,90</s></div><div className="lp-newprice"><span>R$</span>26,90</div><span className="lp-payment">Pagamento único</span><ul><li><Check size={17}/>50 atividades educativas</li><li><Check size={17}/>PDF A4 para imprimir</li><li><Check size={17}/>Caderno de Colorir</li><li><Check size={17}/>Recorte e Monte</li><li><Check size={17}/>Jogos e Desafios</li></ul><button className="lp-button lp-primary" onClick={()=>buy("complete")}>QUERO O COMPLETO <ArrowRight size={18}/></button></article></div><div className="lp-price-note">✨ Por apenas <strong>R$ 14,00 a mais</strong>, você leva os três bônus especiais!<br/><small>Os valores de referência não são anunciados como preços anteriores ou descontos comprovados.</small></div></div></section>
   <section className="lp-section lp-faq-section"><div className="lp-container lp-faq"><div className="lp-center"><span className="lp-kicker">DÚVIDAS FREQUENTES</span><h2>Ainda ficou alguma dúvida?</h2></div>{faqs.map(([q,a],i)=><div className="lp-faq-item" key={q}><button onClick={()=>setFaq(faq===i?null:i)} aria-expanded={faq===i}>{q}<ChevronDown size={19} className={faq===i?"lp-up":""}/></button>{faq===i&&<p>{a}</p>}</div>)}</div></section>
-  <section className="lp-ending"><div className="lp-container"><h2>Vamos começar essa missão cheia de descobertas?</h2><p>Escolha seu kit e leve a magia K-Pop para as atividades do dia a dia!</p><button className="lp-button lp-yellow" onClick={scrollPrices}>QUERO GARANTIR MEU KIT <ArrowRight size={19}/></button></div></section>
+  <section className="lp-ending"><div className="lp-container"><h2>Vamos começar essa missão cheia de descobertas?</h2><p>Escolha seu kit e leve a magia HUNTRIX para as atividades do dia a dia!</p><button className="lp-button lp-yellow" onClick={scrollPrices}>QUERO GARANTIR MEU KIT <ArrowRight size={19}/></button></div></section>
   </main>
-  <footer className="lp-footer"><strong>✦ MISSÃO K-POP KIDS</strong><p>Material educativo digital • Indicado para crianças de 4 a 6 anos, com acompanhamento de um adulto.</p><small>© 2026 Missão K-Pop Kids. Todos os direitos reservados.</small></footer>
+  <footer className="lp-footer"><strong>✦ MISSÃO HUNTRIX KIDS</strong><p>Material educativo digital • Indicado para crianças de 4 a 6 anos, com acompanhamento de um adulto.</p><small>© 2026 Missão HUNTRIX Kids. Todos os direitos reservados.</small></footer>
   <div className="lp-sticky"><span>Kit a partir de <strong>R$ 12,90</strong></span><button onClick={scrollPrices}>VER OFERTAS <ArrowRight size={16}/></button></div>
   {notice&&<div className="lp-modal-backdrop" role="presentation" onClick={()=>setNotice(false)}><div className="lp-modal" role="dialog" aria-modal="true" aria-label="Checkout em configuração" onClick={e=>e.stopPropagation()}><div className="lp-modal-icon">💗</div><h3>Checkout em configuração</h3><p>Os planos já estão prontos. Falta somente adicionar os links oficiais de pagamento antes de abrir as vendas.</p><button className="lp-button lp-primary" onClick={()=>setNotice(false)}>ENTENDI</button></div></div>}
  </div>
